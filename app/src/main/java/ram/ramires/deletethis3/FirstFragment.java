@@ -37,6 +37,7 @@ public class FirstFragment extends Fragment {
         date.setText("31.03");
 
 
+
         return inflater.inflate(R.layout.fragment_first, container, false);
     }
 

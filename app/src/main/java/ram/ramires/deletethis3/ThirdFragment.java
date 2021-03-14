@@ -19,8 +19,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class ThirdFragment extends Fragment {
     private ActionBar actionBar;
+    private BottomNavigationView navView;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +43,10 @@ public class ThirdFragment extends Fragment {
             }
         });
         // Inflate the layout for this fragment
+
+        navView = requireActivity().findViewById(R.id.nav_view);
+        navView.setVisibility(View.GONE);
+
         return view;
     }
 
@@ -71,10 +79,10 @@ public class ThirdFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }
-
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    public void onDestroy() {
+        super.onDestroy();
+        navView.setVisibility(View.VISIBLE);
         actionBar.setDisplayHomeAsUpEnabled(false);
     }
 }
